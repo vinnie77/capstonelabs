@@ -1,0 +1,5 @@
+# Git ignore for Capstone Labs website
+.DS_Store
+*.swp
+*.bak
+*-old.html

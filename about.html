@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Capstone Labs | AI That Works</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+        :root { --dark:#1a1a2e; --gold:#c9a96e; --gold-dark:#b8945a; --cream:#f8f6f1; --white:#fff; --gray:#6b7280; --gray-light:#e8e4dd; --radius:4px; --radius-lg:12px; --shadow:0 4px 20px rgba(0,0,0,0.08); --shadow-lg:0 20px 60px rgba(0,0,0,0.15); --transition:all 0.35s cubic-bezier(0.4,0,0.2,1); }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Inter',sans-serif;color:var(--dark);background:var(--white);line-height:1.7;overflow-x:hidden;}
+        h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:600;line-height:1.2;}
+        .container{max-width:1200px;margin:0 auto;padding:0 32px;}
+        a{text-decoration:none;color:inherit;}
+        .page-hero{padding:10rem 0 4rem;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);text-align:center;}
+        .page-hero h1{color:var(--white);font-size:clamp(2rem,4vw,3.2rem);margin-bottom:1rem;}
+        .page-hero p{color:rgba(255,255,255,0.7);font-size:1.05rem;max-width:600px;margin:0 auto;}
+        .page-hero .label{display:inline-block;color:var(--gold);font-size:0.78rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1rem;border:1px solid rgba(201,169,110,0.4);padding:0.4rem 1.2rem;border-radius:2px;}
+        .section{padding:5rem 0;}
+        .section-cream{background:var(--cream);}.section-dark{background:var(--dark);color:var(--white);}
+        .gold-divider{width:60px;height:2px;background:var(--gold);margin:1.25rem auto;}
+        .gold-divider-left{width:60px;height:2px;background:var(--gold);margin:1.25rem 0;}
+
+        .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:5rem;align-items:center;}
+        .about-text .label{font-size:0.78rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);}
+        .about-text h2{font-size:2.5rem;margin:1rem 0 1.5rem;}
+        .about-text p{color:var(--gray);margin-bottom:1.25rem;}
+        .about-text .value-prop{font-size:1.05rem;color:var(--dark);font-weight:500;margin-bottom:1.5rem;border-left:3px solid var(--gold);padding-left:1.25rem;}
+        .about-visual{background:var(--dark);border-radius:var(--radius-lg);padding:3rem;display:flex;flex-direction:column;gap:1.5rem;}
+        .cert-badge{background:rgba(201,169,110,0.1);border:1px solid rgba(201,169,110,0.25);border-radius:var(--radius);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;}
+        .cert-badge-icon{font-size:1.8rem;flex-shrink:0;}
+        .cert-badge h4{color:var(--white);font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:600;margin-bottom:0.2rem;}
+        .cert-badge p{color:rgba(255,255,255,0.5);font-size:0.8rem;}
+
+        .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
+        .team-card{text-align:center;}
+        .team-initials{width:90px;height:90px;border-radius:50%;background:var(--dark);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;margin:0 auto 1.25rem;border:2px solid var(--gold);}
+        .team-card h3{font-size:1.1rem;margin-bottom:0.2rem;}
+        .team-card .role{color:var(--gold);font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.75rem;}
+        .team-card p{color:var(--gray);font-size:0.88rem;}
+
+        .mandate-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;}
+        .mandate-item{background:var(--white);border-radius:var(--radius-lg);padding:2rem;box-shadow:var(--shadow);border-left:3px solid var(--gold);}
+        .mandate-num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--gold);margin-bottom:0.5rem;}
+        .mandate-item h4{font-size:1.1rem;margin-bottom:0.5rem;}
+        .mandate-item p{color:var(--gray);font-size:0.9rem;}
+
+        .btn-primary{display:inline-block;background:var(--gold);color:var(--dark);padding:0.9rem 2.5rem;border-radius:var(--radius);font-size:0.88rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;transition:var(--transition);}
+        .btn-primary:hover{background:var(--gold-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,169,110,0.3);}
+        .section-dark .section-title h2{color:var(--white);}
+        .section-dark .section-title p{color:rgba(255,255,255,0.65);}
+        .section-title{text-align:center;margin-bottom:4rem;}
+        .section-title .label{font-size:0.78rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;}
+        .section-title h2{font-size:2.5rem;margin-bottom:1rem;}
+        .section-title p{color:var(--gray);font-size:1.05rem;max-width:600px;margin:0 auto;}
+
+        @media(max-width:1024px){.team-grid,.mandate-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(max-width:768px){.grid-2{grid-template-columns:1fr;}.team-grid,.mandate-grid{grid-template-columns:1fr;}.container{padding:0 20px;}}
+    </style>
+</head>
+<body>
+
+<section class="page-hero">
+    <div class="container">
+        <div class="label">About Capstone Labs</div>
+        <h1>Senior Engineers, One Boutique</h1>
+        <p>Four people who both speak the boardroom and build the systems — for Australian regulated and government clients.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="grid-2">
+            <div class="about-text">
+                <div class="label">Our Unfair Advantage</div>
+                <h2>We Stand Inside the Room</h2>
+                <div class="gold-divider-left"></div>
+                <div class="value-prop">Three of our four founders work inside Australian government and public-sector organisations right now — the exact buyer this venture targets.</div>
+                <p>We know where the budgets sit, where the pain is real, what "governed" and "sovereign" actually have to mean to pass procurement, and how to be believed in those rooms. The beachhead is regulated and government Australia, sovereignty-led — and we are already standing in it.</p>
+                <p>We are not four generic engineers chasing the AI wave. The capabilities we build are weighted to that advantage: the ones worth building first are not the flashiest — they are the ones each of us can credibly walk into a regulated or government room and deliver.</p>
+            </div>
+            <div class="about-visual">
+                <div class="cert-badge">
+                    <div class="cert-badge-icon">🏛️</div>
+                    <div><h4>Government &amp; Public Sector</h4><p>Three founders inside AU government — understanding procurement, risk and pain from the inside</p></div>
+                </div>
+                <div class="cert-badge">
+                    <div class="cert-badge-icon">🛡️</div>
+                    <div><h4>Sovereignty-First Design</h4><p>Data stays in Australia, in your tenancy. Governed, auditable, certified-ready.</p></div>
+                </div>
+                <div class="cert-badge">
+                    <div class="cert-badge-icon">🔧</div>
+                    <div><h4>Building, Not Brochuring</h4><p>Senior engineers who architect, deploy and support production systems — not slide decks.</p></div>
+                </div>
+                <div class="cert-badge">
+                    <div class="cert-badge-icon">📐</div>
+                    <div><h4>Vendor-Neutral Advisory</h4><p>We recommend per workload and per risk profile, not per partnership. That candour is the product.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-cream">
+    <div class="container">
+        <div class="section-title">
+            <div class="label">Our Thesis</div>
+            <h2>The Model Is the Engine. The Workflow Is the Product.</h2>
+            <div class="gold-divider"></div>
+        </div>
+        <div style="max-width:800px;margin:0 auto;text-align:center;">
+            <p style="font-size:1.05rem;color:var(--gray);margin-bottom:1.5rem;">The AI model is a swappable component. The product is the governed, integrated, measured workflow built around it — the part the big firms under-build (they sell decks and staff with juniors) and the tool vendors skip (they sell the engine, not the car).</p>
+            <p style="font-size:1.05rem;color:var(--gray);margin-bottom:2rem;">We build the car, keep a human accountable on every consequential step, stay vendor-neutral, and measure the saving. That candour is not a constraint on the product; it is the product.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-dark">
+    <div class="container">
+        <div class="section-title">
+            <div class="label">How We Operate</div>
+            <h2>The Operating Mandate</h2>
+            <div class="gold-divider"></div>
+            <p>Seven principles that govern every engagement, every deliverable, every recommendation.</p>
+        </div>
+        <div class="mandate-grid">
+            <div class="mandate-item" style="background:rgba(255,255,255,0.06);border-color:var(--gold);">
+                <div class="mandate-num">01</div>
+                <h4 style="color:var(--gold);">Build the Team</h4>
+                <p style="color:rgba(255,255,255,0.65);">Favour work that creates ownership and shared progress; surface where each partner should own a piece rather than one person carrying it all.</p>
+            </div>
+            <div class="mandate-item" style="background:rgba(255,255,255,0.06);border-color:var(--gold);">
+                <div class="mandate-num">02</div>
+                <h4 style="color:var(--gold);">Equip the Partnership</h4>
+                <p style="color:rgba(255,255,255,0.65);">Default to reusable, well-designed, version-tracked deliverables and tools over throwaway effort.</p>
+            </div>
+            <div class="mandate-item" style="background:rgba(255,255,255,0.06);border-color:var(--gold);">
+                <div class="mandate-num">03</div>
+                <h4 style="color:var(--gold);">Anchor to Documented Objectives</h4>
+                <p style="color:rgba(255,255,255,0.65);">Ground every recommendation in project knowledge. If something isn't documented, say so and propose it as a draft, not a fact.</p>
+            </div>
+            <div class="mandate-item" style="background:rgba(255,255,255,0.06);border-color:var(--gold);">
+                <div class="mandate-num">04</div>
+                <h4 style="color:var(--gold);">Derive Sellable Capabilities</h4>
+                <p style="color:rgba(255,255,255,0.65);">Every AI offering must pass: defined input → bounded AI step → human checkpoint → systems integration → measurable saving.</p>
+            </div>
+            <div class="mandate-item" style="background:rgba(255,255,255,0.06);border-color:var(--gold);">
+                <div class="mandate-num">05</div>
+                <h4 style="color:var(--gold);">Drive Client Action</h4>
+                <p style="color:rgba(255,255,255,0.65);">Draft the real artefacts — anchored to the Australian beachhead and the sovereignty angle, in the honest discovery-and-advisory lane.</p>
+            </div>
+            <div class="mandate-item" style="background:rgba(255,255,255,0.06);border-color:var(--gold);">
+                <div class="mandate-num">06</div>
+                <h4 style="color:var(--gold);">Generalise for Replication</h4>
+                <p style="color:rgba(255,255,255,0.65);">Turn each worked use case into an industry-agnostic, replicable template, then note where it transfers.</p>
+            </div>
+            <div class="mandate-item" style="background:rgba(255,255,255,0.06);border-color:var(--gold);">
+                <div class="mandate-num">07</div>
+                <h4 style="color:var(--gold);">Keep the Seam Visible</h4>
+                <p style="color:rgba(255,255,255,0.65);">Explicitly mark which parts are domain-specific and which are the reusable spine, so the template lifts out cleanly rather than being rewritten.</p>
+            </div>
+        </div>
+        <div style="max-width:700px;margin:3rem auto 0;text-align:center;">
+            <p style="color:rgba(255,255,255,0.5);font-size:0.92rem;font-style:italic;">Standing discipline: Sell only what reliably works. Keep a human accountable on consequential steps. Stay vendor-neutral. Measure or it does not ship. Preserve honest pushback — flag weak claims, liability and over-reach openly. This candour is the product.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <div class="label">The Partnership</div>
+            <h2>Who We Are</h2>
+            <div class="gold-divider"></div>
+            <p>Moonlight-first: build real, paid engagements that each double as a reusable capability. The work compounds and raises your market value whether or not it ever goes full-time.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-initials">E</div>
+                <h3>Emmit</h3>
+                <div class="role">Technical &amp; Client Lead</div>
+                <p>Executive liaison, innovative solutioning, hands-on PoC of production systems. The one who walks into the room with a credible, buildable answer and stands it up. Architecture, SAP, integration lead.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-initials">V</div>
+                <h3>Vincent</h3>
+                <div class="role">Governance, Cyber &amp; Sovereignty</div>
+                <p>Access-control, audit and data-residency are not a support function — they are the product and a revenue spine. Payment-integrity diagnostic lead, outside-the-box design for hard regulated problems.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-initials">C</div>
+                <h3>Colin</h3>
+                <div class="role">Microsoft Platform &amp; AI Automation</div>
+                <p>Microsoft-everything plus running AI-automation side-business. Governance, costing systems, Power Platform and Copilot. (Provisional — to be firmed.)</p>
+            </div>
+            <div class="team-card">
+                <div class="team-initials">H</div>
+                <h3>Holger</h3>
+                <div class="role">Discovery, Client &amp; Creative Lead</div>
+                <p>Microsoft, graphic design, photography, video, CAD. The one who finds clients, secures work, builds the brand, and turns three brilliant engineers into a business that sells.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="text-align:center;padding:3rem 0 4rem;">
+    <div class="container">
+        <p style="color:var(--gray);max-width:600px;margin:0 auto 2rem;">Not "quit your job." The path is moonlight-first. The downside is bounded; the upside is a business you own a piece of, doing work you would choose.</p>
+        <a href="contact.html" class="btn-primary">Start a Conversation</a>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+    document.body.insertAdjacentHTML('afterbegin','<header id="site-header" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(26,26,46,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.2);"><div class="header-inner" style="max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:80px;"><a href="index.html" class="logo" style="font-family:Playfair Display,serif;font-size:1.4rem;font-weight:700;color:#fff;letter-spacing:0.02em;text-decoration:none;">Capstone <span style="color:#c9a96e;">Labs</span></a><nav><ul style="display:flex;list-style:none;gap:2rem;"><li><a href="index.html" style="color:rgba(255,255,255,0.85);font-size:0.85rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);text-decoration:none;">Home</a></li><li><a href="capabilities.html" style="color:rgba(255,255,255,0.85);font-size:0.85rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);text-decoration:none;">Capabilities</a></li><li><a href="about.html" style="color:rgba(255,255,255,0.85);font-size:0.85rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);text-decoration:none;color:#c9a96e;">About</a></li><li><a href="contact.html" style="color:rgba(255,255,255,0.85);font-size:0.85rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);text-decoration:none;">Contact</a></li></ul></nav><a href="contact.html" class="btn-cta" style="background:#c9a96e;color:#1a1a2e;padding:0.6rem 1.5rem;border-radius:4px;font-size:0.82rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);text-decoration:none;">Start a Conversation</a><div class="nav-icon" id="navIcon" style="display:flex;flex-direction:column;justify-content:space-between;width:26px;height:20px;cursor:pointer;z-index:1100;flex-shrink:0;"><span style="display:block;height:2px;width:100%;background:#fff;border-radius:9px;"></span><span style="display:block;height:2px;width:100%;background:#fff;border-radius:9px;"></span><span style="display:block;height:2px;width:100%;background:#fff;border-radius:9px;"></span></div></div></header>');
+});
+</script>
+</body>
+</html>

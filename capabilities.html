@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capabilities — Capstone Labs | AI That Works</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+        :root { --dark:#1a1a2e; --gold:#c9a96e; --gold-dark:#b8945a; --cream:#f8f6f1; --white:#fff; --gray:#6b7280; --gray-light:#e8e4dd; --radius:4px; --radius-lg:12px; --shadow:0 4px 20px rgba(0,0,0,0.08); --shadow-lg:0 20px 60px rgba(0,0,0,0.15); --transition:all 0.35s cubic-bezier(0.4,0,0.2,1); }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Inter',sans-serif;color:var(--dark);background:var(--white);line-height:1.7;overflow-x:hidden;}
+        h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:600;line-height:1.2;}
+        .container{max-width:1200px;margin:0 auto;padding:0 32px;}
+        a{text-decoration:none;color:inherit;}
+        .page-hero{padding:10rem 0 4rem;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);text-align:center;}
+        .page-hero h1{color:var(--white);font-size:clamp(2rem,4vw,3.2rem);margin-bottom:1rem;}
+        .page-hero p{color:rgba(255,255,255,0.7);font-size:1.05rem;max-width:600px;margin:0 auto;}
+        .page-hero .label{display:inline-block;color:var(--gold);font-size:0.78rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1rem;border:1px solid rgba(201,169,110,0.4);padding:0.4rem 1.2rem;border-radius:2px;}
+
+        /* Capability detail */
+        .cap-detail{padding:5rem 0;}
+        .cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+        .cap-text .label{font-size:0.78rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;}
+        .cap-text h2{font-size:2rem;margin-bottom:1rem;}
+        .cap-text .tag{display:inline-block;background:rgba(201,169,110,0.12);color:var(--gold-dark);font-size:0.75rem;font-weight:600;padding:0.25rem 0.75rem;border-radius:2px;margin-bottom:1rem;}
+        .cap-text .revenue-tag{display:inline-block;background:var(--dark);color:var(--gold);font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:2px;letter-spacing:0.06em;margin-right:0.4rem;}
+        .cap-text p{color:var(--gray);margin-bottom:1rem;font-size:0.95rem;}
+        .cap-text .honest-line{background:var(--cream);border-left:3px solid var(--gold);padding:1.25rem;margin:1.5rem 0;border-radius:0 var(--radius) var(--radius) 0;font-size:0.92rem;}
+        .cap-text .honest-line strong{color:var(--dark);}
+        .cap-text ul{list-style:none;margin:1rem 0;}
+        .cap-text ul li{display:flex;align-items:flex-start;gap:0.6rem;color:var(--gray);font-size:0.92rem;margin-bottom:0.6rem;}
+        .cap-text ul li::before{content:'→';color:var(--gold);font-weight:600;flex-shrink:0;}
+        .spine{margin:1.5rem 0;background:var(--dark);color:var(--white);border-radius:var(--radius-lg);padding:1.5rem;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;}
+        .spine-step{background:rgba(201,169,110,0.15);color:var(--gold);padding:0.35rem 0.8rem;border-radius:2px;font-size:0.8rem;font-weight:500;}
+
+        /* Revenue table */
+        .rev-table{padding:4rem 0;}
+        .rev-table h2{text-align:center;font-size:2rem;margin-bottom:0.5rem;}
+        .rev-table .subtitle{text-align:center;color:var(--gray);font-size:0.95rem;margin-bottom:2.5rem;}
+        table{width:100%;border-collapse:collapse;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);}
+        thead{background:var(--dark);color:var(--white);}
+        th{padding:1rem 1.25rem;text-align:left;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;}
+        td{padding:0.9rem 1.25rem;border-bottom:1px solid var(--gray-light);font-size:0.92rem;}
+        tbody tr:hover{background:var(--cream);}
+        .rev-shape{font-size:0.75rem;color:var(--gold-dark);font-weight:600;}
+
+        /* The honest line table */
+        .honest-table{background:var(--cream);border-radius:var(--radius-lg);padding:0;overflow:hidden;}
+        .honest-table table{margin-bottom:0;box-shadow:none;}
+        .honest-table thead{background:var(--dark);}
+
+        .gold-divider{width:60px;height:2px;background:var(--gold);margin:1.25rem auto;}
+        .btn-primary{display:inline-block;background:var(--gold);color:var(--dark);padding:0.9rem 2.5rem;border-radius:var(--radius);font-size:0.88rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;transition:var(--transition);}
+        .btn-primary:hover{background:var(--gold-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,169,110,0.3);}
+        .btn-outline-light{display:inline-block;background:transparent;border:1.5px solid rgba(255,255,255,0.5);color:var(--white);padding:0.9rem 2.5rem;border-radius:var(--radius);font-size:0.88rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;transition:var(--transition);}
+        .btn-outline-light:hover{background:var(--white);color:var(--dark);}
+        .section-cream{background:var(--cream);}.section-dark{background:var(--dark);color:var(--white);}
+        .section{padding:5rem 0;}
+        .cta-content{text-align:center;max-width:600px;margin:0 auto;}
+        .cta-content h2{font-size:2.5rem;margin-bottom:1rem;}.cta-content p{color:var(--gray);margin-bottom:2.5rem;font-size:1.05rem;}
+        .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+        @media(max-width:768px){.cap-grid{grid-template-columns:1fr;}.container{padding:0 20px;}}
+    </style>
+</head>
+<body>
+<div style="max-width:1200px;margin:0 auto;padding:0 32px;">
+</div>
+
+<section class="page-hero">
+    <div class="container">
+        <div class="label">Capabilities &amp; Commercials</div>
+        <h1>What We Build, What It Sells For</h1>
+        <p>An honest map — is it realistically sellable, and whose paid work is it?</p>
+    </div>
+</section>
+
+<section class="section cap-detail">
+    <div class="container">
+        <div class="cap-grid">
+            <div class="cap-text">
+                <div class="label">Tier A</div>
+                <h2>Agentic Workflows</h2>
+                <div class="tag">Production-ready</div>
+                <p>An agent is a model given tools and a multi-step task it works through with checkpoints. Where it earns its place: variable, document-heavy, multi-step work — classify an inbound item, extract its fields, draft a response, route it — with a human gate on anything consequential.</p>
+                <div class="honest-line">
+                    <strong>Where it is over-sold:</strong> Anything a deterministic script or rule does more cheaply and reliably. Selling an agent where a scheduled job wins is precisely the hype we do not trade in.
+                </div>
+                <p><strong>Sellable as:</strong> Productised workflows (intake triage &amp; extraction, invoice reconciliation, research/summarisation) with a governance and audit spine built in.</p>
+                <p><strong>Revenue shape:</strong> <span class="revenue-tag">P</span> Project build + <span class="revenue-tag">R</span> Recurring retainer</p>
+                <p><strong>Owners:</strong> Emmit (build &amp; PoC) with Vincent (governance, audit, access)</p>
+                <div class="spine">
+                    <span>Reusable spine:</span>
+                    <span class="spine-step">Classify</span>
+                    <span>→</span>
+                    <span class="spine-step">Extract</span>
+                    <span>→</span>
+                    <span class="spine-step">Route</span>
+                    <span>→</span>
+                    <span class="spine-step">Draft</span>
+                    <span>→</span>
+                    <span class="spine-step">Human Gate</span>
+                    <span>→</span>
+                    <span class="spine-step">Audit</span>
+                </div>
+                <p style="font-size:0.85rem;color:var(--gray);font-style:italic;">Re-skinned from restaurant to claims, tickets, FOI, AP processing.</p>
+            </div>
+            <div class="cap-text">
+                <div class="label">Tier B</div>
+                <h2>Python Production Apps &amp; Integration</h2>
+                <div class="tag">Strong demand</div>
+                <p>Custom services and pipelines — extraction and reconciliation engines, API and MCP integrations, scheduled processing — built in Python and handed over.</p>
+                <div class="honest-line">
+                    <strong>The honest line:</strong> AI accelerates the build dramatically, but 'production' means ownership — architecture, deployment, security, monitoring, integration with legacy and SAP, and maintenance. That is a Solution Architect's job, not a chat window's. The gap between a working prototype and a production system someone is accountable for is precisely the billable engagement.
+                </div>
+                <p><strong>Sellable as:</strong> Bespoke build + integration, plus a support/monitoring retainer — the annuity.</p>
+                <p><strong>Revenue shape:</strong> <span class="revenue-tag">P</span> Project build + <span class="revenue-tag">R</span> Recurring retainer</p>
+                <p><strong>Owners:</strong> Emmit (architecture, SAP, integration) with Colin (Microsoft &amp; automation)</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-cream">
+    <div class="container">
+        <div class="cap-grid">
+            <div class="cap-text">
+                <div class="label">Tier C</div>
+                <h2>Microsoft Stack — Power Platform &amp; M365</h2>
+                <div class="tag">High demand</div>
+                <p>The most important tier, because it is where our M365 clients already live. Power Apps, Power Automate flows, SharePoint as a document and data backend, Dataverse when scale justifies it — with a governed AI layer (Azure OpenAI, AI Builder, Copilot Studio) on top.</p>
+                <div class="honest-line">
+                    <strong>Licensing line — our credibility:</strong> M365 E3 includes seeded Power Platform only — no premium connectors, no full Dataverse, no AI Builder, no Copilot. Real production apps require Power Apps Premium (~US$20/user/month). Knowing exactly where the paid line falls is the consultant's value, not a footnote.
+                </div>
+                <p><strong>Sellable as:</strong> Power Platform builds on existing M365/E3 estates, licensing-and-governance advisory, Copilot-readiness and oversharing remediation, plus a managed retainer.</p>
+                <p><strong>Revenue shape:</strong> <span class="revenue-tag">P</span> Project build + <span class="revenue-tag">R</span> Recurring retainer</p>
+                <p><strong>Owners:</strong> Colin (Microsoft everything) and Holger (SharePoint, M365, creative &amp; delivery), with Vincent on governance and Emmit on architecture.</p>
+            </div>
+            <div class="cap-text">
+                <div class="label">Diagnostic</div>
+                <h2>AI Opportunity Discovery</h2>
+                <div class="tag">The low-risk wedge</div>
+                <p>A structured triage engagement to map your organisation's AI opportunity landscape. We assess which workflows are ready for automation, what governed layer is needed, and where AI genuinely beats a deterministic alternative.</p>
+                <p><strong>Sellable as:</strong> Fixed-fee diagnostic that maps the opportunity, flags the risks, and recommends a build roadmap.</p>
+                <p><strong>Revenue shape:</strong> <span class="revenue-tag">D</span> Fixed-fee diagnostic → <span class="revenue-tag">P</span> Project → <span class="revenue-tag">R</span> Retainer</p>
+                <p><strong>Owners:</strong> Holger (client, discovery) + Emmit (technical assessment)</p>
+                <div class="spine">
+                    <span>Typical outputs:</span>
+                    <span class="spine-step">Workflow audit</span>
+                    <span>→</span>
+                    <span class="spine-step">Platform recommendation</span>
+                    <span>→</span>
+                    <span class="spine-step">Build roadmap</span>
+                    <span>→</span>
+                    <span class="spine-step">Cost &amp; ROI estimate</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section rev-table">
+    <div class="container">
+        <h2>Who Owns What — The Map to the Money</h2>
+        <p class="subtitle">Revenue shapes: D = fixed-fee diagnostic, P = project build, R = recurring retainer, O = outcome-linked</p>
+        <table>
+            <thead>
+                <tr><th>Capability</th><th>Sellable?</th><th>Primary Owner</th><th>Revenue</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Margin-leak / payment-integrity diagnostic</td><td>Lead capability</td><td>Vincent + Emmit</td><td><span class="rev-shape">D → P → R/O</span></td></tr>
+                <tr><td>Inbound intake triage &amp; extraction</td><td>First build</td><td>Emmit + Vincent</td><td><span class="rev-shape">P + R</span></td></tr>
+                <tr><td>Governed knowledge retrieval (RAG)</td><td>Strong</td><td>Emmit + Vincent</td><td><span class="rev-shape">P + R</span></td></tr>
+                <tr><td>Power Platform builds on M365 / E3</td><td>High demand</td><td>Colin + Holger</td><td><span class="rev-shape">P + R</span></td></tr>
+                <tr><td>AI opportunity discovery (triage map)</td><td>Paid wedge</td><td>Holger + Emmit</td><td><span class="rev-shape">D</span></td></tr>
+                <tr><td>Copilot / Agent-365 governance &amp; oversharing</td><td>M365 estates</td><td>Vincent + Colin</td><td><span class="rev-shape">D + P + R</span></td></tr>
+                <tr><td>Agentic process automation</td><td>Selective*</td><td>Emmit</td><td><span class="rev-shape">P + R</span></td></tr>
+                <tr><td>Python integration &amp; data pipelines</td><td>Strong</td><td>Emmit + Colin</td><td><span class="rev-shape">P + R</span></td></tr>
+            </tbody>
+        </table>
+        <p style="text-align:center;margin-top:1rem;color:var(--gray);font-size:0.85rem;font-style:italic;">* Selective = sell it only where an agent genuinely beats a script. Honesty here is a feature, not a limitation.</p>
+    </div>
+</section>
+
+<section class="section section-cream">
+    <div class="container">
+        <h2 style="text-align:center;font-size:2rem;margin-bottom:0.5rem;">What AI Accelerates vs. What We Own</h2>
+        <p style="text-align:center;color:var(--gray);margin-bottom:2.5rem;">AI speeds the build; we own the accountability. The gap is the fee.</p>
+        <div class="honest-table">
+            <table>
+                <thead>
+                    <tr><th>AI / Claude Accelerates</th><th>We Own (The Paid Work)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>First-pass code, extraction, drafting, docs</td><td>Architecture &amp; technology decisions</td></tr>
+                    <tr><td>Reconciliation logic &amp; analysis</td><td>Production deployment, monitoring, security</td></tr>
+                    <tr><td>The PoC and the demo</td><td>Integration with legacy, SAP, M365, client systems</td></tr>
+                    <tr><td>Discovery artefacts &amp; first-draft proposals</td><td>Compliance, sovereignty &amp; sign-off</td></tr>
+                    <tr><td>Speed — weeks of work in hours</td><td>Accountability &amp; the client relationship</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="section section-dark">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Explore?</h2>
+            <div class="gold-divider" style="margin:1.25rem auto;"></div>
+            <p style="color:rgba(255,255,255,0.65);">Every engagement starts with a structured conversation — no pitch decks, no pressure. We map the opportunity and tell you honestly what works.</p>
+            <div class="cta-btns">
+                <a href="contact.html" class="btn-primary">Start a Conversation</a>
+                <a href="about.html" class="btn-outline-light">About Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+    var h=document.createElement('header');h.id='site-header';h.style.cssText='position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(26,26,46,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.2);';
+    h.innerHTML='<div class="header-inner" style="max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:80px;"><a href="index.html" class="logo" style="font-family:Playfair Display,serif;font-size:1.4rem;font-weight:700;color:#fff;letter-spacing:0.02em;text-decoration:none;">Capstone <span style="color:#c9a96e;">Labs</span></a><nav><ul style="display:flex;list-style:none;gap:2rem;"><li><a href="index.html" style="color:rgba(255,255,255,0.85);font-size:0.85rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);text-decoration:none;">Home</a></li><li><a href="capabilities.html" style="color:rgba(255,255,255,0.85);font-size:0.85rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);text-decoration:none;color:#c9a96e;">Capabilities</a></li><li><a href="about.html" style="color:rgba(255,255,255,0.85);font-size:0.85rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);text-decoration:none;">About</a></li><li><a href="contact.html" style="color:rgba(255,255,255,0.85);font-size:0.85rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);text-decoration:none;">Contact</a></li></ul></nav><a href="contact.html" class="btn-cta" style="background:#c9a96e;color:#1a1a2e;padding:0.6rem 1.5rem;border-radius:4px;font-size:0.82rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);text-decoration:none;">Start a Conversation</a><div class="nav-icon" id="navIcon" style="display:flex;flex-direction:column;justify-content:space-between;width:26px;height:20px;cursor:pointer;z-index:1100;flex-shrink:0;"><span style="display:block;height:2px;width:100%;background:#fff;border-radius:9px;"></span><span style="display:block;height:2px;width:100%;background:#fff;border-radius:9px;"></span><span style="display:block;height:2px;width:100%;background:#fff;border-radius:9px;"></span></div></div>';
+    document.body.insertBefore(h,document.body.firstChild);
+});
+</script>
+</body>
+</html>
