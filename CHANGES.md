@@ -20,3 +20,16 @@ All content sourced from:
 - Responsive, mobile-first
 - Slide-out navigation on mobile
 - Vendor-neutral, honesty-led messaging throughout
+
+## v1.1 (2026-07-01) — Compliance Pages
+
+### Added
+- `privacy.html` — Privacy policy covering AU Privacy Act 1988, NDB scheme, data rights
+- `terms.html` — Terms of use including liability, governing law (NSW), confidentiality
+- Footer links on index.html to privacy & terms pages
+
+### Notes
+- ABN placeholder badge on both pages — update when ABN registered
+- Privacy covers: collection, use, third-party processors (Formspree), storage, AU consumer rights, NDB scheme
+- Terms cover: IP, liability, governing law (NSW), confidentiality of unsolicited submissions
+- Both pages aligned with SOC 2 / AU compliance baseline for a pre-revenue consultancy
